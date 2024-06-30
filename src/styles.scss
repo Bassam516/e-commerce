@@ -1,0 +1,51 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import 'ngx-toastr/toastr';
+
+$fontFamily:"Encode Sans Expanded", sans-serif;
+$mainColor:#0aad0a;
+$lightColor:#f0f3f2;
+$rateColor:#ffc908;
+
+body{
+    font-family: $fontFamily !important;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}
+.mt{
+    margin-top: 100px;
+}
+.font-sm{
+    font-size: 14px;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+.main-color{
+    color: $mainColor !important;
+}
+.bg-main{
+    background-color: $mainColor !important;
+}
+.bg-light{
+    background-color: $lightColor !important;
+}
+.rate-color{
+    color: $rateColor !important;
+}
+
+.btn-border{
+    border: 1px solid $mainColor !important;
+}
+.showPassword{
+    position: relative;
+
+    i{
+        position: absolute;
+        top: calc(50% - 8px);
+        right: 20px;
+    }
+}

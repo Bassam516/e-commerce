@@ -1,0 +1,13 @@
+<div class="row">
+    <div *ngFor="let product of allProducts" class="col-md-3 g-2">
+        <div class="card border-0 text-center">
+            <img [src]="product.imageCover" [alt]="product.title" class="img-fluid">
+            <div class="p-3">
+                <h6>{{product.title|shrinkDescription}}</h6>
+                <p class="font-sm">{{product.description|shrinkDescription}}</p>
+            </div>
+            <a [routerLink]="['/productdetails', product._id]" class="btn bg-main text-white w-50 m-auto">Details..</a>
+        </div>
+    </div>
+</div>
+<button class="btn bg-main m-auto d-block my-4 text-white" (click)="showMore()" [disabled]="isDisabled"><i class="fas fa-spinner fa-spin" *ngIf="isLoading"></i> Show More..</button>

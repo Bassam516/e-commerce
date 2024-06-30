@@ -1,0 +1,39 @@
+<div class="p-5 bg-light my-5">
+    <h2>My Shop Cart: </h2>
+    <h6 class="main-color">Total Price: {{cartProducts?.totalCartPrice|currency:'EGP '}}</h6>
+
+    <div *ngFor="let product of cartProducts.products; let i=index" class="row border-bottom py-3">
+        <div class="col-md-1">
+            <img [src]="product.product.imageCover" [alt]="product.product.title" class="img-fluid">
+        </div>
+        <div class="col-md-11 d-flex justify-content-between align-items-center">
+            <div>
+                <h5>{{product.product.title}}</h5>
+                <h6 class="main-color">Price: {{product.price}}</h6>
+                <button (click)="deleteCartItem(product.product._id, i)" class="btn btn-danger text-light my-3">
+                    <i *ngIf="!isDeleted[i]" class="fa-regular fa-trash-can"></i>
+                    <i *ngIf="isDeleted[i]" class="fas fa-spinner fa-spin"></i>
+                     Remove</button>
+            </div>
+            <div>
+                <button (click)="updateItemCount(product.product._id, product.count + 1)" class="btn btn-border btn-sm">+</button>
+                <span class="p-3">{{product.count}}</span>
+                <button [disabled]="product.count === 0" (click)="updateItemCount(product.product._id, product.count - 1)" class="btn btn-border btn-sm">-</button>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn bg-main m-3 text-light">
+        <a class="text-light" [routerLink]="['/checkout', cartProducts._id]">
+            Online Payment <img width="30" src="images/mastercard.png" alt="mastercard" class="img-fluid">
+        </a>
+    </button>
+
+    <button [disabled]="cartProducts.length == 0" (click)="clearCart()" class="btn btn-danger my-4">
+        <i *ngIf="!isCleared" class="fa-regular fa-trash-can"></i>
+        <i *ngIf="isCleared" class="fas fa-spinner fa-spin"></i>
+        Clear Cart
+    </button>
+    
+
+</div>

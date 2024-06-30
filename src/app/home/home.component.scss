@@ -1,0 +1,29 @@
+
+.card{
+    border: none !important;
+    /* box-shadow: 0 0 10px rgba(0,0,0,0.1); */
+    border-radius: 7px;
+    margin: 20px 0;
+    overflow: hidden;
+    transition: all .3s ease-in-out;
+
+    .content{
+        padding: 15px;
+
+        ul{
+            margin: 20px 0;
+        }
+
+    }
+
+    &:hover{
+        box-shadow: 0 0 40px rgba(0,0,0,0.1);
+    }
+    button{
+        transition: all .3s ease-in-out;
+        transform: translateY(100px);
+    }
+    &:hover button{
+        transform: translateY(0);
+    }
+}
